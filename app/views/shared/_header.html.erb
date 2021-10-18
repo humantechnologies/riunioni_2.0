@@ -41,7 +41,8 @@
           <div class="dropdown">
             <a href="#" class="nav-link pr-0" data-toggle="dropdown">
               <% if current_user.image.blank? || !valid_url?(current_user.image) %>
-                <span class="avatar"><%= current_user.name.first %></span>
+                <!-- GT20200328 <span class="avatar"><%= current_user.name.first %></span>  -->
+                <span class="avatar" style="background-image: url(<%= "user_placeholder.jpg" %>)"></span>
               <% else %>
                 <span id="user-avatar" class="avatar d-none"><%= current_user.name.first %></span>
                 <%= image_tag(current_user.image, id: "user-image", class: "avatar") %>
@@ -73,10 +74,12 @@
                 <% end %>
               <% end %>
               <div class="dropdown-divider"></div>
-              <% if Rails.configuration.help_url.present? %>
-                <a class="dropdown-item" href="<%= Rails.configuration.help_url %>" target="_blank" rel="noopener">
-                  <i class="dropdown-icon far fa-question-circle"></i> <%= t("header.dropdown.help") %>
+              <% if Rails.configuration.help_url.present? %>  
+                <a class="dropdown-item" href="/informazioni" target="_blank" rel="noopener">
+                  <i class="dropdown-icon fas fa-info-circle"></i> <%= t("header.dropdown.help") %>
                 </a>
+                
+                
               <% end %>
               <% if Rails.configuration.report_issue_url.present? %>
                 <a class="dropdown-item" href="<%= Rails.configuration.report_issue_url %>" target="_blank" rel="noopener">
