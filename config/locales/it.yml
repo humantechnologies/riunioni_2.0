@@ -111,7 +111,7 @@ it:
       shared_access:
         info: "Impostando su disabilitato, verrà rimossa l'opzione dal menu a discesa delle Opzioni Stanza, impedendo agli utenti di condividere le Stanze"
         title: Consenti agli Utenti di condividere Stanze
-      subtitle: Personalizza Greenlight
+      subtitle: Personalizza Riunioni.Online
       tabs:
         appearance: Aspetto
         administration: Amministrazione
@@ -167,13 +167,13 @@ it:
     room_configuration:
       title: Configurazione Stanza
       mute:
-        info: Muta automaticamente l'utente quando entra nel meeting BigBlueButton
+        info: Muta automaticamente l'utente quando entra nel meeting
       require_moderator:
-        info: "Chiede al moderatore del meeting BigBlueButton quando un utente prova ad entrare. Se l'utente è approvato, gli sarà possibile entrare nel meeting."
+        info: "Chiede al moderatore del meeting quando un utente prova ad entrare. Se l'utente è approvato, gli sarà possibile entrare nel meeting."
       allow_any:
         info: "Permetti a qualsiasi utente di iniziare il meeting. Normalmente, solo il proprietario della stanza può iniziare il meeting."
       all_moderator:
-        info: Dà a tutti gli utenti i privilegi di moderatore su BigBlueButton quando entrano nel meeting.
+        info: Dà a tutti gli utenti i privilegi di moderatore quando entrano nel meeting.
       recordings:
         info: "Permetti ai proprietari delle stanze di specificare se vogliono poter registrare la stanza o meno. Se abilitata, il moderatore deve comunque cliccare il pulsante \"Registra\" una volta avviato il meeting."
       moderator_codes:
@@ -224,7 +224,7 @@ it:
         valid: Valido
       title: Gestisci utenti
   add_to_google_calendar: "Aggiungi a Google Calendar"
-  bigbluebutton: BigBlueButton
+  bigbluebutton: Riunioni.Online
   bigbluebutton_exception: "Oops, c'è stato un errore nell'avvio del meeting!"
   cancel: Annulla
   cookies:
@@ -258,9 +258,9 @@ it:
       contact_admin: "Non sei un amministratore, dovresti contattarne uno serio."
       continue: Voglio restare con la versione 1.0.
       notice: >
-        Si è verificato un errore nella migrazione del database di Greenlight. <br> Questo può essere perché non hai aggiornato alla versione 2.0.
+        Si è verificato un errore nella migrazione del database. <br> Questo può essere perché non hai aggiornato alla versione 2.0.
       upgrade: Mostrami come aggiornare alla versione 2.0!
-      version: Abbiamo rilasciato una nuova versione di Greenlight ma il tuo database non sembra essere compatibile.
+      version: Abbiamo rilasciato una nuova versione ma il tuo database non sembra essere compatibile.
     messages:
       blank: non può essere vuoto
       too_short: è troppo corto
@@ -272,7 +272,7 @@ it:
       domain: "deve terminare con \"%{email_domain}\""
     no_provider:
       message: Il sito a cui stai provando ad accedere non è abilitato
-      help: Prego contatta l'amministratore di sistema affinché configuri Greenlight
+      help: Prego contatta l'amministratore di sistema affinché configuri Riunioni.Online
     not_found:
       message: Spiacente! La pagina che stai cercando non esiste.
       help: "Possibile che sia stato rimosso?"
@@ -286,32 +286,74 @@ it:
     unauthorized:
       message: Non hai accesso a questa applicazione
       help: "Se ritieni si tratti di un errore, contatta il tuo amministratore."
-  expired_reset_token: Il link per il reset della password è scaduto!
+    signup:
+       name: nome non valido (non può essere vuoto e max 256 caratteri)
+       email: email non valida (non può essere vuota, non corretta o già usata)
+       password: password non valida (min 6 caratteri)
+       confirm: le password inserite sono diverse
+       terms: termini e condizioni devono essere accettati  expired_reset_token. Il link per il reset della password è scaduto!
+  expired_reset_token: Password reset link has expired!
   features:
-    title: Caratteristiche
-    rooms: Stanze personalizzate
-    recordings: Gestione delle registrazioni
-    designs: Grafiche personalizzate
-    authentication: Autenticazione Utente
+    title: Il servizio di riunioni.online è offerto gratuitamente per il periodo di un mese, trascorso il quale sarete contattati via email con la proposta di un contratto di servizio adatto alle vostre esigenze.
+    title1: Il servizio di riunioni.online è offerto gratuitamente per il periodo di un mese, trascorso il quale sarete contattati via email con la proposta di un contratto di servizio adatto alle vostre esigenze.    
+    subtitle: Se volete usufruire di un servizio gratuito potete visitare il sito gemello chiamami.online, dedicato gli utenti non professionali.
+    subtitle2: Riunioni.Online è uno strumento essenziale per le riunioni di lavoro di piccole e medie imprese, per l'organizzazione di corsi e webinar, per i professionisti della formazione a distanza, per docenti e studenti che vogliono organizzare lezioni private, ripetizioni o aule di sostegno.
+    rooms: Sale Riunioni
+    roomsdetails: Meetings Aziendali, Riunioni Professionali, Lezioni 
+    recordings: Resistrazione e Crittografia
+    recordingsdetails: Registrazione Riunioni e Collegamenti Crittografati
+    designs: Video Webinars
+    designdetails: Webinars, Video Corsi, Formazione e Lezioni di Gruppo
+    authentication: Condivisione Schermo
+    authdetails: Lavagna Virtuale e Condivisione Materiale Didattico
+    whytitle: Perchè usare le Aule Virtuali di Riunioni.Online
+    whypara1: Se sei un docente, una scuola o una società che eroga formazione nelle aule virtuali di Riunioni.online puoi ospitare le tue lezioni individuali e di gruppo, organizzare webinar e seminari per studenti e professionisti senza far muovere i partecipanti da casa, da scuola o dalla propria postazione di lavoro.
+    whypara2: Se gestisti una azienda puoi organizzare riunioni o erogare corsi di formazione e aggiornamento ai tuoi dipendenti direttamente nella loro postazione, anche in sedi diverse sparse sul territorio, con una notevole ottimizzazione dei tempi di esecuzione e riduzione dei costi per spostamenti e logistica.
+    whypara3: Puoi anche utilizzare i nostri servizi per fornire supporto tecnico online ai clienti della tua attività, consentendogli di connettersi in videoconferenza per richiedere informazioni e parlare con un esperto  della tua azienda, anticipando già da remoto la soluzione di alcuni problemi o consentendo un intervento più mirato sul campo.
+    whypara4: Con Riunioni.online oggi è più facile interagire e comunicare, dialogare online con i propri studenti, fare domande ai docenti. Facilita la creazione un ambiente collaborativo ed integrato nella tua azienda, favorisce la diffusione di informazioni e materiale educativo, ti consente di risparmiare sui costi.
+    share: Consiglialo ai tuoi amici
   footer:
     legal: Termini
-    privpolicy: Politica della Privacy
-    powered_by: "Questo progetto utilizza %{href}."
+    privpolicy: Privacy Policy
+    powered_by: "Copyright 2020:   %{href}."
+    ht: "HT Tecnologie Umanistiche - p.iva 02691600999"
+    mail: info@riunioni.online
+    phone: "+39 3357499489"
+    terms: Termini di Utilizzo
+    privacy: Privacy Policy
+    cookies: Cookies
+    info: Informazioni
+    faq: FAQ
+    contacts: Contatti
   forgot_password:
     subtitle: Password dimenticata
     email: Email
     submit: Invia
   go_back: Indietro
-  greenlight: Greenlight
+  go_home: Vai alle Sale
+  greenlight: Riunioni.Online
   header:
     all_recordings: Tutte le Registrazioni
     dropdown:
       account_settings: Organizzazione
       help: "Ti serve aiuto?"
+      info: Informazioni
+      faq: FAQs
       home: Principale
       settings: Profilo
       signout: Esci
-  home_room: Stanza principale
+  home_room: Sala Personale Base
+  ht: HT - Tecnologie Umanistiche
+  info:
+     contatti: Contatti
+     cookies: Cookies
+     faq: FAQ (Frequently Asked Questions)
+     help: "Istruzioni per l'Utilizzo"
+     informazioni: Informazioni
+     prezzi: Piani e Prezzi
+     privacy: Privacy Policy
+     termini: Termini di Utilizzo
+     lorem: Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.
   info_update_success: Le informazioni sono state aggiornate.
   invalid_credentials: L'email e/o la password che hai fornito non hanno riscontro in archivio. Prova ancora o clicca su "Ho dimenticato la password" per resettare e reimpostare la tua password attuale
   invalid_credentials_external: L’indirizzo email e la password che hai inserito non corrispondono ai nostri archivi. Prova di nuovo.
@@ -328,10 +370,11 @@ it:
       start: Inizio ricerca...
   landing:
     about: "%{href} è una semplice interfaccia per il software di video-conferenza open source BigBlueButton. Puoi creare Stanze per ospitare i meeting, o partecipare ad altri meeting utilizzando pratici collegamenti brevi."
-    welcome: Benvenuti su Riunioni.Online.
+    welcome: Benvenuti su Riunioni.Online
+    meetings: Riunioni e Lezioni Online
     video: Guarda il tutorial sull'utilizzo di Greenlight
     upgrade: Mostrami come aggiornare alla versione 2.0!
-    version: "È stata rilasciata una nuova versione di GreenLight, ma il tuo database non è compatibile."
+    version: "È stata rilasciata una nuova versione, ma il tuo database non è compatibile."
   language_default: Predefinito (linguaggio del browser)
   ldap_error: Impossibile collegarsi al server LDAP. Controlla la configurazione LDAP nel file env e assicurati che il server sia attivo.
   login: Entra
@@ -344,9 +387,9 @@ it:
         signin_link: Entra
         signup:
           info: "Un nuovo utente si è registrato "
-          more-info: Per consentire a questo utente l'accesso a Greenlight devi approvare il suo account nelle impostazioni Organizzazione.
+          more-info: Per consentire a questo utente l'accesso devi approvare il suo account nelle impostazioni Organizzazione.
           admins_link: Visita la pagina Organizzazione
-          subject: Accesso nuovo Utente Greenlight
+          subject: Accesso nuovo Utente
           username: "L'utente ha avuto accesso con il nome %{name} e l'email %{email} ."
         subject: Account Approvato
         username: "Il tuo nome utente è %{email}."
@@ -361,9 +404,9 @@ it:
         signup_link: Accesso
         valid: "L'invito è valido fino al: %{date}"
         signup:
-          info: Un utente che è stato invitato ha avuto accesso a Greenlight.
+          info: Un utente che è stato invitato ha avuto accesso.
           admins_link: Visita la pagina Organizzazione
-          subject: Accesso nuovo Utente Greenlight
+          subject: Accesso nuovo Utente
           username: "L'utente ha avuto accesso con il nome %{name} e l'email %{email} ."
         subject: Invito ad accedere a BigBlueButton
         username: "Il tuo nome utente è %{email}."
@@ -389,6 +432,17 @@ it:
         thanks: "Grazie per aver participato, buona giornata!"
   max_concurrent: È stato raggiunto il massimo numero di sessioni contemporanee!
   merged: Accorpato
+  meta:
+     hometitle: "Riunioni.Online, Riunioni e Lezioni Online"
+     homedescription: "Sale Virtuali per riunioni e lezioni, dotate di lavagna virtuale per disegnare, per caricare presentazioni e contenuti multimediali, condivisione dello schermo."
+     homekeywords: "riunioni online, lezioni online, ripetizioni, videoconferenze, webinar, meetings, formazione, docenti, studenti, aula virtuale, condivisione schermo"
+     staticpagestitle: "Riunioni.Online"
+     staticpagesdescription: "Sale Virtuali per riunioni e lezioni, dotate di lavagna virtuale per disegnare, per caricare presentazioni e contenuti multimediali, condivisione dello schermo."
+     staticpageskeywords: "riunioni online, lezioni online, videoconferenze, webinar, meetings, aula virtuale, condivisione schermo"
+     title: "Riunioni.Online"
+     description: "sale Virtuali per riunioni e lezioni, dotate di lavagna virtuale per disegnare, per caricare presentazioni e contenuti multimediali, condivisione dello schermo."
+     keywords: "riunioni online, lezioni online, videoconferenze, webinar, meetings"
+     language: it
   modal:
     create_role:
       create: Crea nuovo Ruolo
@@ -400,9 +454,7 @@ it:
       access_code: Codice Accesso
       moderator_access_code: Codice moderatore
       access_code_placeholder: Genera un codice opzionale di accesso
-      reset_access_code: Reimposta il codice opzionale di accesso
       moderator_access_code_placeholder: Genera un codice facoltativo per moderatori
-      reset_moderator_access_code: Reimposta il codice facoltativo per moderatori
       auto_join: Aggiungimi automaticamente alla stanza
       create: Crea Stanza
       free_delete: Puoi eliminare la stanza in qualsiasi momento.
@@ -486,6 +538,7 @@ it:
   password_empty_notice: La password non può essere vuota.
   password_reset_success: La password è stata reimpostata.
   password_different_notice: La conferma della password non coincide.
+  password_show: mostra password
   provider:
     google: Google
     office365: Office 365
@@ -582,7 +635,7 @@ it:
     owner_banned: Questa stanza non è al momento disponibile
     no_room:
       description: Inserisci l'url o l'id della stanza a cui desideri accedere.
-      edit_profile: Modifica Profilo utente
+      edit_profile: Modifica Profilo Utente
       go_to: Vai alla Stanza
       invalid_room_uid: L'url/uid della stanza inserito non è valido.
       placeholder: url/uid Stanza
@@ -662,3 +715,7 @@ it:
     signin: Effettua l'accesso al tuo account.
     title: Verifica la tua email
     verification: Verifica
+  warning:
+    message_1: EMERGENZA COVID-19
+    message_2: Informiamo gli utenti che in questo periodo, allo scopo di garantire il migliore servizio a tutti i nostri abbonati, ogni giorno verranno eseguite operazioni di manutenzione straordinaria sui nostri server alle ore 08:00, 13:00, e 19:00.
+    message_3: Consigliamo di terminare i vostri collegamenti un minuto prima degli orari indicati. Potrete riprenderli 5 minuti dopo gli orari indicati.
