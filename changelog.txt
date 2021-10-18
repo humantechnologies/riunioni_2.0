@@ -1,4 +1,73 @@
 
-versione 2.0 modifiche dal 18/10/2021 al 18/10/2021 su versione master (greenlight release 2.10.0.1)
+versione 2.0.1 modifiche dal 18/10/2021 al 18/10/2021 su versione master (greenlight release 2.10.0.1)
+
+      create  app/controllers/info_controller.rb
+       route  get 'info/termini'
+get 'info/privacy'
+get 'info/cookies'
+get 'info/prezzi'
+get 'info/informazioni'
+get 'info/help'
+get 'info/faq'
+get 'info/contact'
+      invoke  erb
+      create    app/views/info
+      create    app/views/info/termini.html.erb
+      create    app/views/info/privacy.html.erb
+      create    app/views/info/cookies.html.erb
+      create    app/views/info/prezzi.html.erb
+      create    app/views/info/informazioni.html.erb
+      create    app/views/info/help.html.erb
+      create    app/views/info/faq.html.erb
+      create    app/views/info/contact.html.erb
+      invoke  test_unit
+      create    test/controllers/info_controller_test.rb
+      invoke  helper
+      create    app/helpers/info_helper.rb
+      invoke    test_unit
+      invoke  assets
+      invoke    js
+      create      app/assets/javascripts/info.js
+      invoke    scss
+      create      app/assets/stylesheets/info.scss
 
 
+modifica anche il file  config/route.rb
+
+aggiunta la directory con i testi delle pagine statiche (uno per pagina)  e il file terms
+config/info/
+config/terms.md
+
+il comando generera anche dei file .erb in (che però vanno poi modificati per mostrare il contenuto)
+app/wiews/info (un file erb per ogni pagina)   
+
+il comando modifica
+config/route.rb
+app/controllers/info_controller.rb
+
+config/routes.rb    (modificati percorsi per le pagine statiche del nuovo controller Info)
+
+modifiche alle immagini
+
+public/favicon.ico                    (sostituita favicon.ico)
+public/riunioni_e_lezioni_online.jpg  (aggiunta immagine per metatag open graphs og:image)
+public/users/user_placeholder.jpg
+public/strumenti_per_videoconferenze.jpg
+public/riunioni_e_lezioni_online.jpg
+
+app/assets/images/bbb_logo.png        (sostituita)
+app/assets/images/logo_with_text.png  (sostituita)
+app/assets/images/favicon.ico  (sostituita)
+
+modifiche per la lingua
+
+config/locales/en.yml    (in inglese sostituito greenlight con Riunioni)
+config/locales/it.yml    (file nuovo per lingua italiana)
+
+
+modifiche alla grafica e ai link di home page e negli include
+app/views/main/index.html.erb
+app/views/main/components/_features.html.erb (aggiunto paragrafo, modificati box con icone, aggiunto tasto iscrizione)
+app/views/shared/_footer.html.erb (rimosso "greenlight", aggiunto paragrafo)
+app/views/shared/_header.html.erb (rimosso link ad help "greenlight", sostituito con link alla pagina help)
+ 
