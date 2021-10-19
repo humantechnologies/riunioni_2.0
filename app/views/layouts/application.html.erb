@@ -11,11 +11,39 @@
 # PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
 # You should have received a copy of the GNU Lesser General Public License along
 # with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
+# GT20200328 added meta
+# MM20200422 modificato per caricare gtag allo scroll, accelera di 0.2sec 
+%>
+
+<% 
+  currentpage = (request.path_info[1..-1]).capitalize
+  case currentpage 
+   when ""
+     meta_title = t("meta.hometitle")
+     meta_description = t("meta.homedescription")
+     meta_keys = t("meta.homekeywords")
+     meta_robots = "index,follow"
+     meta_canonical = request.protocol + request.host_with_port + request.fullpath
+   when "Privacy" , "Cookies", "Contatti", "Faq", "Help", "Informazioni", "Prezzi", "Termini"
+     meta_title = t("meta.staticpagestitle") + " - " + currentpage
+     meta_description = t("meta.staticpagesdescription")
+     meta_keys = currentpage.capitalize + ", " + t("meta.staticpageskeywords")
+     meta_robots = "index,follow"
+     meta_canonical = request.protocol + request.host_with_port + request.fullpath
+    else
+     meta_title = t("meta.title")
+     meta_description = t("meta.description")
+     meta_keys = t("meta.keywords")
+     meta_robots = "index,follow"
+     meta_canonical = ""
+    end 
 %>
 
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="preload" href="https://riunioni.online/images/riunioni_online.png" as="image">
+    <link rel="preload" href="https://riunioni.online/b/strumenti_per_videoconferenze-PROG.jpg" as="image">
     <% if Rails.configuration.google_analytics %>
       <!-- Global site tag (gtag.js) - Google Analytics -->
       <script async src="<%= google_analytics_url %>"></script>
@@ -25,9 +53,54 @@
         gtag('js', new Date());
 
         gtag('config', "<%= ENV["GOOGLE_ANALYTICS_TRACKING_ID"] %>");
+
+        var ultimifilejs = [];
+        ultimifilejs.push([false, '<%= google_analytics_url %>']);
+
+        var supportoListenerPassivi = !1;
+        try {
+             options = {get passive() {supportoListenerPassivi = !0;}};
+             window.addEventListener("dummy", options, options);
+             window.removeEventListener("dummy", options, options);
+            }
+        catch(err) {
+             supportoListenerPassivi = !1;
+            };
+
+        function caricaultimifiles() {
+            if (typeof ultimifilejs !== 'undefined' && ultimifilejs.length > 0) {
+                for (var i = 0, len = ultimifilejs.length; i < len; i++) {
+                    if(!ultimifilejs[i][0]) ultimifilejs[i][0] = caricajsc(ultimifilejs[i][1]);
+                }
+            }
+        };
+
+        function caricajsc(href){
+        var n = document.createElement('script');
+            n.src = href;
+        var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(n, s);
+        return true;}
+
+        function aggiungiListener_BrwsIndep(elemento, evento, callback) {
+            if (elemento.addEventListener) {elemento.addEventListener(evento, callback, supportoListenerPassivi ? { passive: true } : false);}
+            else if (elemento.attachEvent) {elemento.attachEvent('on' + evento, callback);}
+        }
+
+        function aggiungiListener_onDOMContentLoaded_BrwsIndep(elemento, evento, callback) {
+            if (document.readyState === "loading") {
+              aggiungiListener_BrwsIndep(document, 'DOMContentLoaded', function () {aggiungiListener_BrwsIndep(elemento, evento, callback);});
+            } else {
+              aggiungiListener_BrwsIndep(elemento, evento, callback);
+            }
+        }
+
+        aggiungiListener_onDOMContentLoaded_BrwsIndep(document, 'focus',  caricaultimifiles);
+        aggiungiListener_onDOMContentLoaded_BrwsIndep(document, 'scroll', caricaultimifiles);
       </script>
     <% end %>
 
+ <!--
     <title><%= yield(:page_title).present? ? yield(:page_title) : t("bigbluebutton") %></title>
     <meta property="og:title" content="<%= yield(:page_title).present? ? yield(:page_title) : t("bigbluebutton") %>" />
     <meta property="og:type" content="website" />
@@ -35,7 +108,37 @@
     <meta property="og:description" content="<%= yield(:page_desc).present? ? yield(:page_desc) : t("landing.about", href: "Greenlight", locale: :en) %>" />
     <meta property="og:url" content="<%= request.base_url %>" />
     <meta property="og:image" content="<%= logo_image %>" />
+ -->
+    <% # GT20200328 aggiunti meta, lasciati i meta di default csrf_meta_tags servono per la sicurezza %>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Cache-Control" content="public, max-age=#{4.days.to_i}" /> 
+    <meta http-equiv="content-language" content="<%= t("meta.language") %>" />     
+    <% # posso usare I18n.locale  ? è già inizializzato %>
+
+    <meta name="Description" content="<%= meta_description %>" />
+    <meta name="Keywords" lang="<%= t("meta.language") %>" content="<%= meta_keys %>" />
+    <meta name="Robots" content="<%= meta_robots %>" />
+ 
+    <meta name="revisit-after" content="15" />
+    <meta name="author" content="HT Tecnologie Umanistiche" />
+    <meta name="copyright" content="HT Tecnologie Umanistiche" />
+        
+    <% # <meta property="fb:app_id" content="210879388499" />  app facebook da definire per Riunioni.online  %>
+
+    <% # GT20200328 aggiunti Open Graph meta %>
+    <meta property="og:title" content="<%= meta_title %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://riunioni.online/b/riunioni_e_lezioni_online.jpg" />
+    <meta property="og:url" content="https://riunioni.online/" />
+
     <meta name="viewport" content= "width=device-width, user-scalable=no">
+
+    <% if meta_canonical != "" %>
+       <link rel="canonical" href="<%= meta_canonical %>"/>
+    <% end %>
+
     <%= csrf_meta_tags %>
 
     <!-- Global javascript variables and helpers. -->
@@ -45,8 +148,13 @@
       window.GreenLight.RELATIVE_ROOT = "<%= relative_root %>"
     </script>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- commento queste
+    <% # = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% # = javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    -->
+    
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
 
     <%= favicon_link_tag asset_path('favicon.ico') %>
 
@@ -68,8 +176,9 @@
         <div class="alert alert-icon alert-danger text-center mb-0">
           <div class="flash alert d-inline">
             <i class="fas fa-exclamation-triangle"></i>
+           <% # GT20200328 modificato link a documentazione esterna a link interno di pagina da creare %>
             <p class="d-inline"><%= t("test_install",
-              href: link_to(t("docs").downcase, "http://docs.bigbluebutton.org/install/greenlight-v2.html#2-install-greenlight", target: "_blank", rel: "noopener")
+              href: link_to(t("docs").downcase, "/info", target: "_blank", rel: "noopener")
             ).html_safe %>
           </div>
         </div>
@@ -87,6 +196,22 @@
 
       <%= yield %>
     </div>
+    <script>
+        var vocimenu = document.querySelectorAll(".dropdown-item"),
+            estquery = /\?/,
+            accaref;
+
+        for (var i = 0, len = vocimenu.length; i < len; i++) {
+            accaref = vocimenu[i].href;
+            if(typeof accaref !== 'undefined') {
+                if(estquery.test(accaref)){
+                    vocimenu[i].href = accaref + '&' +  Math.random();   
+                } else {
+                    vocimenu[i].href = accaref + '?' +  Math.random();   
+                }
+            }
+        }
+    </script>  
 
     <%= render "shared/footer" %>
   </body>
