@@ -99,7 +99,8 @@ class ApplicationController < ActionController::Base
     if user && user.language != 'default'
       user.language
     else
-      Rails.configuration.default_locale.presence || http_accept_language.language_region_compatible_from(I18n.available_locales)
+      # GT20211019 Rails.configuration.default_locale.presence || http_accept_language.language_region_compatible_from(I18n.available_locales)
+      "it"
     end
   end
 
