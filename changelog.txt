@@ -1,4 +1,22 @@
 
+Versione 2.0.2  modifiche dal 18/10/2021 al 19/10/2021 su versione master (greenlight release 2.10.0.1 oct 2021) 
+ 
+ 
+app/views/user/components/_account.html.erb (commentato il campo "provider", inserita immagine avatar)
+app/controllers/application_controller.rb   (impostata "it" come lingua di default)
+
+app/views/layouts/application.html.erb      (aggiunti metatags, aggiunte ottimizzazioni MM, sistemato link ad /info)
+
+app/views/session/new.html.erb             (aggiunta background image)
+app/views/session/signin.html.erb          (aggiunta background image)
+
+
+aggiornati files delle lingue
+config/locales/en.yml    (in inglese sostituito bigbluebutton con Riunioni)
+config/locales/it.yml    (in italiano sostituito bigbluebutton con Riunioni)
+
+
+
 versione 2.0.1 modifiche dal 18/10/2021 al 18/10/2021 su versione master (greenlight release 2.10.0.1)
 
       create  app/controllers/info_controller.rb
