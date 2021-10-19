@@ -13,6 +13,19 @@
 # with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 %>
 
+<% # GT20200328 profile image dimention adabpted to mobile rendering%>
+<style>
+@media (max-width: 768px) {
+ .avatar-xxl {
+    width: 2rem; 
+    height: 2rem; 
+    line-height: 2rem;
+    font-size: 2rem;
+    margin-top: 1.7rem !important;
+ }
+}
+</style>
+
 <% readonly = !can_edit_user?(@user, current_user) %>
 
 <%= form_for @user, url: update_user_path, method: :post do |f|  %>
@@ -33,10 +46,13 @@
         </div>
       </div>
     </div>
-    
-    <%= f.label :provider, t("settings.account.provider"), class: "form-label" %>
-    <%= f.text_field :provider, class: "form-control", readonly: "" %>
-    <br>
+   
+   
+   <!-- GT19102021
+     <%= f.label :provider, t("settings.account.provider"), class: "form-label" %>
+     <%= f.text_field :provider, class: "form-control", readonly: "" %>
+       
+    <br> -->
     <%= f.label :language, t("settings.account.language"), class: "form-label" %>
     <select id="language-dropdown" class="selectpicker show-tick w-50">
       <% language_options.each do |lang| %>
@@ -65,7 +81,8 @@
     <div class="row">
       <div class="col-5 col-sm-2">
         <% if @user.image.blank? || !valid_url?(@user.image) %>
-          <span class="avatar avatar-xxl mr-5 mt-2 bg-primary"><%= @user.name.first %></span>
+       		<%#GT20200328     <span class="avatar avatar-xxl mr-5 mt-2 bg-primary"><%= @user.name.first % ></span>  %>
+          <span class="avatar avatar-xxl mr-5 mt-2" style="background-image: url(<%= "user_placeholder.jpg" %>)"></span>
         <% else %>
           <%= image_tag(@user.image, class: "avatar avatar-xxl mr-5 mt-2") %>
         <% end %>
