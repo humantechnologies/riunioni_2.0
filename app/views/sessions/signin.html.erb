@@ -13,6 +13,20 @@
 # with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 %>
 
+<style>
+ 
+.homebackground{
+ background-color: #F5F7FB;
+ background: url("strumenti_per_videoconferenze-PROG.jpg"); 
+ background-repeat: no-repeat center top;
+ background-size: cover;
+ background-position: center;
+ width: 100%; height: auto; top: 0; left: 0;
+ z-index: -1;
+ }
+</style> 
+ 
+<div class="homebackground">
 <div class="container">
   <div class="row pt-7">
     <div class="col col-lg-6 offset-lg-3">
@@ -38,6 +52,7 @@
               </div>
             </div>
           <% end %>
+          <br>
           <%= form_for(:session, url: create_session_path) do |f| %>
             <div class="form-group">
               <div class="input-icon">
@@ -47,6 +62,7 @@
                 <%= f.email_field :email, class: "form-control", placeholder: t("email"), value: "", autofocus: "", required: "" %>
               </div>
             </div>
+            <br>
             <div class="form-group">
               <div class="input-icon">
                 <span class="input-icon-addon">
@@ -55,6 +71,7 @@
                 <%= f.password_field :password, class: "form-control", placeholder: t("password"), value: "", required: "" %>
               </div>
             </div>
+            <br>
             <% if Rails.configuration.enable_email_verification %>
               <div class="form-group">
                 <div class="input-icon">
@@ -62,7 +79,9 @@
                 </div>
               </div>
             <% end %>
+            
             <div class="card-footer px-0">
+            <br>
               <%= f.submit t("login"), class: "btn btn-primary btn-block signin-button" %>
             </div>
           <% end %>
@@ -70,4 +89,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>
