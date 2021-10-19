@@ -230,7 +230,7 @@ it:
   cookies:
     cookie_info: "I Cookies aiutano a fornire i servizi personalizzati. Usando i nostri servizi, accetti di usare i nostri Cookies."
     cookie_button: Accetto
-    policy: "Per ulteriori informazioni, consulta la nostra <a href=\"%{privacy_link}\"><u>normativa sulla privacy</u></a>."
+    policy: "Per ulteriori informazioni, consulta la nostra normativa sulla privacy."
   copied: Copiato
   copy: Copia
   date:
