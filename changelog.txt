@@ -1,3 +1,15 @@
+Versione 2.0.4  modifiche dal 21/10/2021 al 20/12/2022 su versione master (greenlight release 2.10.0.1 oct 2021) 
+
+public/strumenti_per_videoconferenze-PROG.jpg
+app/views/main/index.html.erb                 (sistemate scritte)
+app/views/main/components/_features.html.erb  (rimosse scritte in home page)
+
+
+Versione 2.0.3  modifiche dal 19/10/2021 al 21/10/2021 su versione master (greenlight release 2.10.0.1 oct 2021) 
+
+app/views/main/components/_features.html.erb (rimosso riferimento a chiamami.online)
+config/terms.md            (corretti alcuni testi)
+
 
 Versione 2.0.2  modifiche dal 18/10/2021 al 19/10/2021 su versione master (greenlight release 2.10.0.1 oct 2021) 
  
