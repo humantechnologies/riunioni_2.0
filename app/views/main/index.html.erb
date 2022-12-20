@@ -61,16 +61,16 @@
   <div class="container pt-9 pb-6">
     <div class="row">
       <div class="col-md-12 col-sm-12 text-center">
-        <h1 id="main-text" class="display-4 mb-4" style="color: #fff;">  <!-- color: #467fcf -->
+        <h1 id="main-text" class="display-4 mb-4" style="color: #467fcf;">  <!-- color: #467fcf -->
       
           <%= t("landing.welcome").html_safe %></h1>
 
           <p class="lead offset-lg-2 col-lg-8 col-sm-12 "></p>
 
-          <h2 id="meetings" class="mb-8" style="color: #fff;">
+          <h2 id="meetings" class="mb-8" style="color: #467fcf;">
             <%= t("landing.meetings").html_safe %></h2>
 
-          <p class="lead offset-lg-2 col-lg-8 col-sm-12 mb-6"></p>
+          <p class="lead offset-lg-2 col-lg-8 col-sm-12 mb-6" style="padding-top: 120px;"></p>
 
 				<% if current_user %>
         						<%= link_to t("go_home"), current_user.main_room, :rel => "nofollow", :class => "btn btn-pill btn-outline-primary_inhome btn_inhome mx-2 mb-2" %>
